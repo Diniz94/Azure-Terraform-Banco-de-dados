@@ -24,3 +24,10 @@ resource "azurerm_mssql_database" "mssqdatabase" {
   collation = "SQL_latin1_General_CP1_CI_AS"
   sku_name  = "Basic"
 }
+ 
+ resource "azurerm_sql_database" "azsqldatabase" {
+   name = "azsqldatabase-tf"
+   resource_group_name = azurerm_resource_group.rg.name
+   location = azurerm_resource_group.rg.location
+   server_name = azurerm_sql_server.sqlserver.name
+ }
